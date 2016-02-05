@@ -12,6 +12,9 @@ if $TERM =~ '-256color'
    set t_Co=256
 endif
 
+" Use old regexp engine to boost ruby syntax Highlight performance
+set re=1
+
 " -----------------------------
 " File Locations
 " -----------------------------

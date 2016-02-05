@@ -24,6 +24,10 @@ nnoremap <leader>sc <nop>
 nnoremap ; :
 vnoremap ; :
 
+"swap . and :
+nnoremap . :
+nnoremap : .
+
 " Yank entire buffer with gy
 nnoremap gy :0,$ y<cr>
 
