@@ -13,6 +13,11 @@ if $TERM =~ '-256color'
 endif
 
 " Use old regexp engine to boost ruby syntax Highlight performance
+
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_css_checkers = ['csslint']
 set re=1
 
 " -----------------------------
