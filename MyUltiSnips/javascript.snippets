@@ -59,7 +59,12 @@ def formatVariableName(path):
   else:
     return re.sub(r'[_\-]', '', module.title())
 snip.rv = formatVariableName(t[1])
-` from '${1}';$0
+` from '${1}'$0
+endsnippet
+
+
+snippet il "magic import" b
+import $1 from 'lodash/${1}'$0
 endsnippet
 
 # Arrow function
@@ -84,8 +89,8 @@ export { $1 } from '${2:./}';
 endsnippet
 
 snippet expf "Export function" b
-export ${1:default }function($2) {
-  $3
+export default function ${1:name}(${2:arguments}) {
+  $0
 }
 endsnippet
 
@@ -125,14 +130,26 @@ snippet cn "class name" i
 className="${0}"
 endsnippet
 
+snippet cna "aprhodite class name" i
+className={css(styles.${0})}
+endsnippet
+
 snippet props "get property" i
 this.props.${1}
 endsnippet
 
 snippet sst "set state" i
-this.setState({
-  ${1}: ${2}
-});$0
+this.setState({ ${1}: ${2} });$0
+endsnippet
+
+snippet ci "Component Inline" b
+<${1:Component} />$0
+endsnippet
+
+snippet cb "Component Block" b
+<${1:Component}>
+  $0
+</$1>
 endsnippet
 
 snippet rj "return JSX" b
@@ -150,7 +167,8 @@ return (
 endsnippet
 
 snippet component "new component" b
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class ${1:Name} extends Component {
   static propTypes = {
@@ -176,19 +194,20 @@ export default class ${1:Name} extends Component {
 endsnippet
 
 snippet functional "new functional component" b
-import React, { PropTypes } from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-const ${1:Name} = ({ ${2:props} }) => (
+const ${1:Name} = ({ ${2:prop} }) => (
   <div>
     $0
   </div>
-);
+)
 
 $1.propTypes = {
-  prop: PropTypes.string,
-};
+  $2: PropTypes.string,
+}
 
-export default $1;
+export default $1
 endsnippet
 
 # Lifecycle
@@ -378,4 +397,33 @@ snippet pt.shr "React PropTypes shape required" w
 PropTypes.shape({
   $1
 }).isRequired,
+endsnippet
+
+snippet handleChange "Handle change function" i
+handleChange = ({ target: { value } }) => {
+  this.setState({ value });
+}
+endsnippet
+
+snippet handleSubmit "Handle submit function" i
+handleSubmit = (event) => {
+  event.preventDefault();
+  $0
+}
+endsnippet
+
+snippet ulr "ul to react component" i
+<ul>
+  {
+    $1.map(({ $2 }) => (
+      <li key={$3}>$4</li>
+    ))
+  }
+</ul>
+endsnippet
+
+snippet handleClick "Handle click function" i
+handleClick = (event) => {
+  $0
+}
 endsnippet

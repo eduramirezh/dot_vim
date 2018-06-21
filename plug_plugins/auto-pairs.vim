@@ -1,4 +1,4 @@
 if exists('g:plug_installing_plugins')
-  Plug 'L9'
+  Plug 'jiangmiao/auto-pairs'
   finish
 endif
