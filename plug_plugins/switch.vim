@@ -3,4 +3,4 @@ if exists('g:plug_installing_plugins')
   finish
 endif
 
-let g:switch_mapping = '-'
+"let g:switch_mapping = '-'

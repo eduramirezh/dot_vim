@@ -6,11 +6,12 @@
 " Color
 " ---------------
 set background=dark
-colorscheme jellybeans
 " Force 256 color mode if available
 if $TERM =~ '-256color'
    set t_Co=256
 endif
+let base16colorspace=256  " Access colors present in 256 colorspace
+colorscheme base16-brewer
 
 " -----------------------------
 " File Locations
@@ -35,6 +36,7 @@ set laststatus=2   " Always show the statusline
 set cmdheight=2    " Make the command area two lines high
 set cursorline     " Highlight current line
 set encoding=utf-8
+set fileencoding=utf-8
 set noshowmode     " Don't show the mode since Powerline shows it
 set title          " Set the title of the window in the terminal to the file
 if exists('+colorcolumn')
@@ -87,6 +89,7 @@ set cindent
 set autoindent
 set smarttab
 set expandtab
+set endofline
 
 " ---------------
 " Searching
